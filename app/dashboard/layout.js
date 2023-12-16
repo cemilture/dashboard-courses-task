@@ -1,7 +1,6 @@
 import Image from "next/image";
 import profilePhoto from "./cemilture.jpg";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { HandleLogout } from "../authUtils";
 
 export const metadata = {
