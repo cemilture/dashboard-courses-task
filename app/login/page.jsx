@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { serialize } from "cookie";
-import { NextResponse } from "next/server";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");

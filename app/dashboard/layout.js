@@ -11,7 +11,7 @@ const DashboardPage = ({ children }) => {
   return (
     <div className="min-h-screen flex bg-gray-100">
       {/* Sidebar */}
-      <div className="w-1/4 bg-gray-800 text-white p-4">
+      <div className="w-1/5 bg-gray-800 text-white p-4">
         <p className="text-lg font-semibold">Manage Courses</p>
         <div className="text-center mb-24">
           <Image
