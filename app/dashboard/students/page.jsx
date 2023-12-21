@@ -5,12 +5,15 @@ import axios from "axios";
 import Image from "next/image";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const StudentsPage = () => {
   const [students, setStudents] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const studentsPerPage = 6;
+  const router = useRouter();
 
   useEffect(() => {
     // Fetch students data from the API
@@ -72,6 +75,11 @@ const StudentsPage = () => {
     setStudents((prevStudents) =>
       prevStudents.filter((student) => student.id !== studentId)
     );
+  };
+
+  const handleEditStudent = (studentId) => {
+    // Use router.push to navigate with the studentId as a query parameter
+    router.push(`/dashboard/students/edit?studentId=${studentId}`);
   };
 
   return (
@@ -142,11 +150,13 @@ const StudentsPage = () => {
               {/* Edit and Delete buttons */}
               <div className="col-span-1 flex items-center">
                 <button
+                  onClick={() => handleEditStudent(student.id)}
                   className="bg-border-transparent text-green-800 py-2 px-4 rounded-md mx-1 hover:bg-green-200 focus:outline-none focus:ring focus:border-blue-300"
                   title="Edit Student"
                 >
                   <FaEdit />
                 </button>
+
                 <button
                   onClick={() => handleDeleteStudent(student.id)}
                   className="bg-border-transparent text-red-700 py-2 px-4 rounded-md mx-1 hover:bg-red-300 focus:outline-none focus:ring focus:border-black"

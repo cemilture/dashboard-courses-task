@@ -1,6 +1,7 @@
 import Image from "next/image";
 import profilePhoto from "./cemilture.jpg";
 import Link from "next/link";
+import { handleLogout } from "../libs/handleLogout";
 
 export const metadata = {
   title: "Manage Courses",
@@ -8,17 +9,6 @@ export const metadata = {
 };
 
 const DashboardPage = ({ children }) => {
-  const handleLogout = async () => {
-    // const response = NextResponse.json("token");
-    // response.cookies.delete("token");
-    // return response;
-    // Delete the 'token' cookie
-    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
-
-    // Redirect to the login page
-    window.location.href = "/login";
-  };
-
   return (
     <div className="min-h-screen flex bg-gray-100">
       {/* Sidebar */}
@@ -57,7 +47,7 @@ const DashboardPage = ({ children }) => {
                 className="text-gray-300 hover:text-white"
                 href="/dashboard/students"
               >
-                Student
+                Students
               </Link>
             </li>
             <li>
