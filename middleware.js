@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { verifyJwtToken } from "./libs/authUtils";
+import { verifyJwtToken } from "./app/libs/authUtils";
 
 const AUTH_PAGES = ["/login", "register", "forgot-password"];
 
