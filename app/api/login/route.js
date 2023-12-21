@@ -1,5 +1,5 @@
 import { SignJWT } from "jose";
-import { getJwtSecretKey } from "../../../libs/authUtils";
+import { getJwtSecretKey } from "../../libs/authUtils";
 import { NextResponse } from "next/server";
 
 export async function POST(request) {
