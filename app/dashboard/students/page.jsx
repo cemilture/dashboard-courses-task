@@ -66,20 +66,23 @@ const StudentsPage = () => {
   const handleAddStudent = () => {
     // Implement your logic to add a new student
     console.log("Add new student functionality");
+    router.push("/dashboard/students/add-student");
   };
 
-  const handleDeleteStudent = (studentId) => {
+  const handleDeleteStudent = (studentId, students) => {
     console.log(`Deleting student with ID ${studentId}`);
-    // Implement your delete functionality here
-    // For example, you can update the state to remove the student from the list
+
     setStudents((prevStudents) =>
       prevStudents.filter((student) => student.id !== studentId)
+    );
+
+    window.alert(
+      `${students.firstName} ${students.lastName} Deleted successfully`
     );
   };
 
   const handleEditStudent = (studentId) => {
-    // Use router.push to navigate with the studentId as a query parameter
-    router.push(`/dashboard/students/edit?studentId=${studentId}`);
+    router.push(`/dashboard/students/${studentId}`);
   };
 
   return (
