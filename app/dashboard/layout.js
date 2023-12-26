@@ -22,7 +22,7 @@ const DashboardPage = ({ children }) => {
   return (
     <div className="min-h-screen flex bg-gray-100">
       {/* Sidebar */}
-      <div className="w-1/5 bg-gray-800 text-white p-5 text-center grid justify-items-center content-between">
+      <div className="max-h-screen w-1/5 bg-gray-800 text-white p-5 text-center grid justify-items-center content-between">
         <div className="">
           <div className="flex items-center">
             <SiConcourse />

@@ -1,3 +1,4 @@
+import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { verifyJwtToken } from "./app/libs/authUtils";
 
@@ -6,8 +7,9 @@ const AUTH_PAGES = ["/login", "register", "forgot-password"];
 const isAuthPages = (url) => AUTH_PAGES.some((page) => page.startsWith(url));
 
 export async function middleware(request) {
-  const { url, nextUrl, cookies } = request;
-  const { value: token } = cookies.get("token") ?? { value: null };
+  const cookie = cookies();
+  const { url, nextUrl } = request;
+  const { value: token } = cookie.get("token") ?? { value: null };
   console.log(token);
 
   const hasVerifiedToken = token && verifyJwtToken(token);

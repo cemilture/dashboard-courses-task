@@ -1,6 +1,7 @@
 import { SignJWT } from "jose";
 import { getJwtSecretKey } from "../../libs/authUtils";
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 
 export async function POST(request) {
   const body = await request.json();
@@ -19,6 +20,7 @@ export async function POST(request) {
     const response = NextResponse.json({
       success: true,
     });
+
     response.cookies.set({
       name: "token",
       value: token,

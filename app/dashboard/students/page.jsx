@@ -92,7 +92,7 @@ const StudentsPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex bg-gray-100">
+    <div className="max-h-screen flex bg-gray-100">
       {/* ... (your existing sidebar code) */}
 
       {/* Main Content */}
