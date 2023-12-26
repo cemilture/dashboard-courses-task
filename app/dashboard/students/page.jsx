@@ -71,7 +71,7 @@ const StudentsPage = () => {
   const handleDeleteStudent = (studentId, student) => {
     // Confirm before deleting
     const isConfirmed = window.confirm(
-      `Are you sure you want to delete ${student.firstName} ${student.lastName}?`
+      `Are you sure you want to delete ${student?.firstName} ${student?.lastName}?`
     );
 
     if (isConfirmed) {
@@ -167,7 +167,7 @@ const StudentsPage = () => {
                 </button>
 
                 <button
-                  onClick={() => handleDeleteStudent(student.id)}
+                  onClick={() => handleDeleteStudent(student.id, student)}
                   className="bg-border-transparent text-red-700 py-2 px-4 rounded-md mx-1 hover:bg-red-300 focus:outline-none focus:ring focus:border-black"
                   title="Delete Student"
                 >
