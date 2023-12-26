@@ -5,7 +5,6 @@ import axios from "axios";
 import Image from "next/image";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const StudentsPage = () => {
@@ -66,19 +65,26 @@ const StudentsPage = () => {
   const handleAddStudent = () => {
     // Implement your logic to add a new student
     console.log("Add new student functionality");
-    router.push("/dashboard/students/add-student");
+    router.push("/dashboard/students/addstudent");
   };
 
-  const handleDeleteStudent = (studentId, students) => {
-    console.log(`Deleting student with ID ${studentId}`);
-
-    setStudents((prevStudents) =>
-      prevStudents.filter((student) => student.id !== studentId)
+  const handleDeleteStudent = (studentId, student) => {
+    // Confirm before deleting
+    const isConfirmed = window.confirm(
+      `Are you sure you want to delete ${student.firstName} ${student.lastName}?`
     );
 
-    window.alert(
-      `${students.firstName} ${students.lastName} Deleted successfully`
-    );
+    if (isConfirmed) {
+      console.log(`Deleting student with ID ${studentId}`);
+
+      setStudents((prevStudents) =>
+        prevStudents.filter((student) => student.id !== studentId)
+      );
+
+      window.alert(
+        `${student.firstName} ${student.lastName} Deleted successfully`
+      );
+    }
   };
 
   const handleEditStudent = (studentId) => {
@@ -116,9 +122,9 @@ const StudentsPage = () => {
         {/* Display Students */}
         <div>
           {/* Table */}
-          <div className="grid grid-cols-7 gap-4 mb-2">
+          <div className="grid grid-cols-8 gap-4 mb-2 py-2">
             <div className="col-span-2 ml-20">Name</div>
-            <div className="col-span-1">Email</div>
+            <div className="col-span-2">Email</div>
             <div className="col-span-1">Phone</div>
             <div className="col-span-1">Website</div>
             <div className="col-span-1">Company Name</div>
@@ -129,7 +135,7 @@ const StudentsPage = () => {
           {currentStudents.map((student) => (
             <div
               key={student.id}
-              className="grid grid-cols-7 items-center border-solid bg-slate-300 rounded-md m-2"
+              className="grid grid-cols-8 items-center border-solid bg-slate-300 rounded-md m-2 px-4"
             >
               {/* Display Image using Next.js Image Component */}
               <div className="col-span-2 flex items-center">
@@ -138,7 +144,7 @@ const StudentsPage = () => {
                   alt={`${student.firstName} ${student.lastName}`}
                   width={60} // Set the desired width
                   height={60} // Set the desired height
-                />{" "}
+                />
                 <div className="ml-1">
                   <h3 className="font-semibold">
                     {student.firstName} {student.lastName}
@@ -146,7 +152,7 @@ const StudentsPage = () => {
                 </div>
               </div>
 
-              <div className="col-span-1">{student.email}</div>
+              <div className="col-span-2">{student.email}</div>
               <div className="col-span-1">{student.phone}</div>
               <div className="col-span-1">{student.domain}</div>
               <div className="col-span-1">{student.company?.name}</div>

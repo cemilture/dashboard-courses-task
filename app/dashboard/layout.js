@@ -2,6 +2,16 @@ import Image from "next/image";
 import profilePhoto from "./cemilture.jpg";
 import Link from "next/link";
 import { handleLogout } from "../libs/handleLogout";
+import {
+  FaHome,
+  FaBook,
+  FaUser,
+  FaMoneyBill,
+  FaChartBar,
+  FaCog,
+  FaSignOutAlt,
+} from "react-icons/fa";
+import { SiConcourse } from "react-icons/si";
 
 export const metadata = {
   title: "Manage Courses",
@@ -12,75 +22,80 @@ const DashboardPage = ({ children }) => {
   return (
     <div className="min-h-screen flex bg-gray-100">
       {/* Sidebar */}
-      <div className="w-1/5 bg-gray-800 text-white p-4">
-        <p className="text-lg font-semibold">Manage Courses</p>
-        <div className="text-center mb-24">
-          <Image
-            className="rounded-full mx-auto"
-            src={profilePhoto}
-            alt="My Profile Photo"
-            width={100}
-            height={100}
-          />
+      <div className="w-1/5 bg-gray-800 text-white p-5 text-center grid justify-items-center content-between">
+        <div className="">
+          <div className="flex items-center">
+            <SiConcourse />
+            <p className="text-lg font-semibold m-2">Manage Courses</p>
+            <SiConcourse />
+          </div>
+
+          <div className="relative w-24 h-24 mx-auto rounded-full overflow-hidden mt-6">
+            <Image
+              className="object-cover w-full h-full"
+              src={profilePhoto}
+              alt="My Profile Photo"
+              layout="fill"
+            />
+          </div>
+          <h2>Cemil TÜRE</h2>
           <p className="mt-2 text-sm">Admin</p>
         </div>
-        <div className="space-y-2">
-          <ul>
-            <li>
-              <Link
-                className="text-gray-300 hover:text-white"
-                href="/dashboard"
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="text-gray-300 hover:text-white"
-                href="/dashboard/course"
-              >
-                Course
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="text-gray-300 hover:text-white"
-                href="/dashboard/students"
-              >
-                Students
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="text-gray-300 hover:text-white"
-                href="/dashboard/payment"
-              >
-                Payment
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="text-gray-300 hover:text-white"
-                href="/dashboard/report"
-              >
-                Report
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="text-gray-300 hover:text-white"
-                href="/dashboard/settings"
-              >
-                Settings
-              </Link>
-            </li>
-          </ul>
+        <div className="space-y-6">
+          <Link
+            className="flex items-center p-2 hover:bg-slate-200 hover:text-black rounded-full focus:bg-slate-400 focus:text-black"
+            href="/dashboard"
+          >
+            <FaHome className="mr-2" />
+            Home
+          </Link>
+
+          <Link
+            className="flex items-center p-2 hover:bg-slate-200 hover:text-black rounded-full focus:bg-slate-400 focus:text-black"
+            href="/dashboard/course"
+          >
+            <FaBook className="mr-2" />
+            Course
+          </Link>
+
+          <Link
+            className="flex items-center p-2 hover:bg-slate-200 hover:text-black rounded-full focus:bg-slate-400 focus:text-black"
+            href="/dashboard/students"
+          >
+            <FaUser className="mr-2" />
+            Students
+          </Link>
+
+          <Link
+            className="flex items-center p-2 hover:bg-slate-200 hover:text-black rounded-full focus:bg-slate-400 focus:text-black"
+            href="/dashboard/payment"
+          >
+            <FaMoneyBill className="mr-2" />
+            Payment
+          </Link>
+
+          <Link
+            className="flex items-center p-2 hover:bg-slate-200 hover:text-black rounded-full focus:bg-slate-400 focus:text-black"
+            href="/dashboard/report"
+          >
+            <FaChartBar className="mr-2" />
+            Report
+          </Link>
+
+          <Link
+            className="flex items-center p-2 hover:bg-slate-200 hover:text-black rounded-full focus:bg-slate-400 focus:text-black"
+            href="/dashboard/settings"
+          >
+            <FaCog className="mr-2" />
+            Settings
+          </Link>
         </div>
-        <div className="mt-96">
+        <div className="">
           <button
             onClick={handleLogout}
-            className="bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:border-blue-300"
+            className="bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:border-blue-300 flex items-center"
           >
+            <FaSignOutAlt className="mr-2" />
             Logout
           </button>
         </div>
