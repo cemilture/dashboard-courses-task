@@ -24,6 +24,10 @@ const AddStudentForm = () => {
     e.preventDefault();
     // Add your logic to send the form data to the server or perform any other actions
     console.log("Form submitted:", formData);
+    window.alert(
+      `${formData.firstName} ${formData.lastName} added successfully`
+    );
+    window.location.href = "/dashboard/students";
   };
 
   return (
@@ -75,7 +79,6 @@ const AddStudentForm = () => {
                 name="email"
                 type="email"
                 autoComplete="email"
-                required
                 className="input-field"
                 placeholder="Email"
                 value={formData.email}
@@ -91,7 +94,6 @@ const AddStudentForm = () => {
                 name="phone"
                 type="tel"
                 autoComplete="tel"
-                required
                 className="input-field"
                 placeholder="Phone"
                 value={formData.phone}
@@ -107,7 +109,6 @@ const AddStudentForm = () => {
                 name="website"
                 type="url"
                 autoComplete="url"
-                required
                 className="input-field"
                 placeholder="Website"
                 value={formData.website}
@@ -123,7 +124,6 @@ const AddStudentForm = () => {
                 name="companyName"
                 type="text"
                 autoComplete="organization"
-                required
                 className="input-field"
                 placeholder="Company Name"
                 value={formData.companyName}
