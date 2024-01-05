@@ -5,7 +5,7 @@ const page = () => {
   return (
     <div
       className="container mx-auto mt-8 p-8"
-      style={{ height: "88vh", marginTop: "7%" }}
+      style={{ height: "85vh", marginTop: "7%" }}
     >
       <h1 className="text-4xl font-bold mb-8 text-center">
         Welcome to My Dashboard Project!
