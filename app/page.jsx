@@ -81,6 +81,18 @@ const page = () => {
           Email: admin@admin <br />
           Password: admin
         </p>
+        <p className="mt-2 text-gray-500 text-center">
+          made by
+          <Link
+            className="font-bold"
+            href="https://www.linkedin.com/in/cemilture/"
+            target="_blank"
+          >
+            {" "}
+            cemilture
+          </Link>{" "}
+          with next js
+        </p>
       </div>
     </div>
   );
