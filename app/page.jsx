@@ -3,7 +3,10 @@ import { RiLoginCircleLine } from "react-icons/ri";
 
 const page = () => {
   return (
-    <div className="container mx-auto mt-8 p-8">
+    <div
+      className="container mx-auto mt-8 p-8"
+      style={{ height: "96vh", marginTop: "7%" }}
+    >
       <h1 className="text-4xl font-bold mb-8 text-center">
         Welcome to My Dashboard Project!
       </h1>
